@@ -1,1 +1,1 @@
-Tasks = new Meteor.Collection('properties');
+Properties = new Meteor.Collection('properties');

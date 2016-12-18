@@ -3,5 +3,4 @@ Router.route('/', function () {
   this.render('menuIndex');
 });
 
-// when you navigate to "/one" automatically render the template named "One".
 Router.route('/create');

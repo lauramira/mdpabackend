@@ -3,28 +3,34 @@
     <h3 class="actions-title">Properties</h3>
   </div>
   {{#if isUserLogged}}
-  <div class="row-xs-12">
+  <div class="col-xs-12">
     <h4>CREATE</h4>
-    <button id="create">Create</button>
+    <button id="create" class="btn btn-primary">Create</button>
   </div>
-  <hr>
-  <div class="row-xs-12">
+
+  <div class="col-xs-12"><hr></div>
+
+  <div class="col-xs-4">
     <h4>UPDATE</h4>
-    <input type="text" id="propertyIdUpdate"/><button>Update</button>
+    <input type="text" id="propertyIdUpdate" class="form-control"/>
+    <button id="updateButton" class="btn btn-primary">Update</button>
   </div>
-  <hr>
+  <div class="col-xs-12"><hr></div>
   {{/if}}
-  <div class="row-xs-12">
+  <div class="col-xs-12">
     <h4>INDEX</h4>
-    <button>Sales</button>
-    <button>Rentals</button>
+    <button class="btn btn-primary">Sales</button>
+    <button class="btn btn-primary">Rentals</button>
     {{#if isUserLogged}}
-    <button>Favorites</button>
+    <button class="btn btn-primary">Favorites</button>
     {{/if}}
   </div>
-  <hr>
-  <div class="row-xs-12">
+
+  <div class="col-xs-12"><hr></div>
+
+  <div class="col-xs-4">
     <h4>SHOW</h4>
-    <input type="text" id="propertyIdShow"/><button>SHOW</button>
+    <input type="text" id="propertyIdShow" class="form-control"/>
+    <button id="showButton" class="btn btn-primary">Show</button>
   </div>
 </template>
