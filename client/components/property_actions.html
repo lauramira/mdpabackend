@@ -1,0 +1,30 @@
+<template name="propertyActions">
+  <div>
+    <h3 class="actions-title">Properties</h3>
+  </div>
+  {{#if isUserLogged}}
+  <div class="row-xs-12">
+    <h4>CREATE</h4>
+    <button id="create">Create</button>
+  </div>
+  <hr>
+  <div class="row-xs-12">
+    <h4>UPDATE</h4>
+    <input type="text" id="propertyIdUpdate"/><button>Update</button>
+  </div>
+  <hr>
+  {{/if}}
+  <div class="row-xs-12">
+    <h4>INDEX</h4>
+    <button>Sales</button>
+    <button>Rentals</button>
+    {{#if isUserLogged}}
+    <button>Favorites</button>
+    {{/if}}
+  </div>
+  <hr>
+  <div class="row-xs-12">
+    <h4>SHOW</h4>
+    <input type="text" id="propertyIdShow"/><button>SHOW</button>
+  </div>
+</template>

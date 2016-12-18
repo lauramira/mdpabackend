@@ -1,0 +1,10 @@
+.create-title{
+  text-align: center;
+  font-weight: bold;
+}
+
+#propertiesToCreate{
+  border: 3px solid;
+  padding: 10px;
+  font-weight: bold;
+}

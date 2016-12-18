@@ -1,1 +1,17 @@
 /* CSS declarations go here */
+.login-buttons-container {
+  text-align: left;
+}
+
+#login-buttons {
+  padding: 10px;
+}
+
+#login-buttons #login-sign-in-link, #login-buttons #login-name-link{
+  color: white;
+}
+
+.container {
+  background: #81BEF7;
+  padding-bottom: 20px;
+}
