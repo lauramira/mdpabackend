@@ -3,13 +3,12 @@ Template.create.onCreated(function propertyCreateOnCreated(){
 
 
 Template.create.helpers({
-
+  isUserLogged: function () {
+    return Meteor.userId() != null;;
+  }
 });
 
 Template.create.events({
-  "click #backButton": function(){
-      Router.go('/');
-    },
     "click #insertButton": function(){
       var data = $("textarea").val();
       Meteor.call("properties.create", data, function(error, result){

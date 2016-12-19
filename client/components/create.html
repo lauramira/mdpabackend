@@ -1,14 +1,15 @@
 <template name="create">
-  <div class="container">
+  <div class="container ">
     <div class="row">
-      <div class="col-xs-6">
-        <div class="alert alert-danger hidden">
-            <p></p>
+      <div class="col-xs-6 alert-container">
+        <div class="alert alert-danger {{#if isUserLogged}}hidden{{/if}}">
+            <p>Error Access Denied [401]</p>
         </div>
         <div class="alert alert-success hidden">
           <p></p>
         </div>
       </div>
+      {{#if isUserLogged}}
         <div class="col-xs-12 form-group">
           <h3 class="create-title">Create properties</h3>
         </div>
@@ -16,9 +17,9 @@
           <textarea placeholder="Insert json object" class="form-control" rows="20" id="propertiesToCreate"></textarea>
         </div>
         <div class="col-xs-6 form-group">
-          <button id="backButton" class="btn btn-primary">Back</button>
           <button id="insertButton" class="btn btn-primary">Insert</button>
         </div>
+        {{/if}}
     </div>
   </div>
 </template>
