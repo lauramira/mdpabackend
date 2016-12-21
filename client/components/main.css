@@ -24,3 +24,39 @@
   background-color: #0B4C5F;
   color: white;
 }
+
+.property-container {
+  border: 2px solid gray;
+  margin-left: 40px;
+  margin-right: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  height: 180px;
+}
+
+.property-container.col-xs-4 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.property-container .col-xs-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.property-container .info-container .col-xs-12 {
+  padding: 10px;
+}
+
+.label-search-form {
+  color: white;
+}
+
+.properties-container {
+  margin: 20px;
+}
+
+.search-container {
+  background-color: #0B615E
+}

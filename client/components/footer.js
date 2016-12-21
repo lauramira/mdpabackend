@@ -3,8 +3,7 @@ Template.footer.onCreated(function footerOnCreated(){
 });
 
 Template.footer.helpers({
-  isNotMainPage: function(){
-    debugger;
+  isNotMainPage: function(){    
     return Router.current().route.path(this) !== "/";
   }
 });

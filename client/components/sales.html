@@ -1,0 +1,24 @@
+<template name="sales">
+  <div class="container">
+    <div class="col-xs-12 search-container">
+      <div class="col-xs-4 form-group">
+        <label class="label-search-form">Search: </label>
+        <input type="text" class="form-control"/>
+      </div>
+    </div>
+    <div class="col-xs-12">
+    {{#each sales}}
+      <div class="col-xs-5 property-container" >
+        <div class="col-xs-6">
+          <img src="{{mainImage}}" width="100%"/>
+        </div>
+        <div class="col-xs-6 info-container">
+          <div class="col-xs-12"><b>{{name}}</b></div>
+          <div class="col-xs-12">{{address}}</div>
+          <div class="col-xs-12">{{price}} €/month</div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+</template>
