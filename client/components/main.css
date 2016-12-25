@@ -60,3 +60,11 @@
 .search-container {
   background-color: #0B615E
 }
+
+.center-content {
+  text-align: center;
+}
+
+.center-block{
+  margin-bottom: 15px;
+}

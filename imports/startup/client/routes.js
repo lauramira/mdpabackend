@@ -1,11 +1,25 @@
-Router.configure({
-    layoutTemplate: 'main'
+// Router.configure({
+//     layoutTemplate: 'main'
+// });
+
+FlowRouter.route('/', {
+  action: function() {
+    BlazeLayout.render("main", {content: "index"});
+  }
 });
 
-Router.route('/', function () {
-  this.render('menuIndex');
+FlowRouter.route('/create', {
+  action: function() {
+    BlazeLayout.render("main", {content: "create"});
+  }
 });
 
-Router.route('/create');
-
-Router.route('/sales');
+FlowRouter.route('/result', {
+  action: function() {
+    BlazeLayout.render("main", {content: "result"});
+  },
+  subscriptions: function(params, queryParams) {
+    debugger;
+    this.register('searchResult', Meteor.subscribe('searchResult', queryParams));
+    }
+});

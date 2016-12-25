@@ -1,13 +1,6 @@
-<template name="sales">
-  <div class="container">
-    <div class="col-xs-12 search-container">
-      <div class="col-xs-4 form-group">
-        <label class="label-search-form">Search: </label>
-        <input type="text" class="form-control"/>
-      </div>
-    </div>
+<template name="result">  
     <div class="col-xs-12">
-    {{#each sales}}
+    {{#each results}}
       <div class="col-xs-5 property-container" >
         <div class="col-xs-6">
           <img src="{{mainImage}}" width="100%"/>
@@ -20,5 +13,4 @@
       </div>
     {{/each}}
     </div>
-  </div>
 </template>

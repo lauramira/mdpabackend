@@ -1,0 +1,10 @@
+#showButton, #updateButton {
+  margin-top: 15px;
+}
+
+.input-container-center {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
