@@ -11,9 +11,8 @@ Template.index.helpers({
   Template.index.events({
     'click #search': function () {
       var type="alquiler";
-      var matchSearch = "Prueba";
-      debugger;
-      FlowRouter.go('/result?type=' + type + '&matchSearch=' + matchSearch);
+      var matchSearch = "Prueba";      
+      FlowRouter.go('/properties?type=' + type + '&matchSearch=' + matchSearch);
 
     }
   });

@@ -14,12 +14,12 @@ FlowRouter.route('/create', {
   }
 });
 
-FlowRouter.route('/result', {
-  action: function() {
-    BlazeLayout.render("main", {content: "result"});
+FlowRouter.route('/properties', {
+  action: function(params, queryParams) {
+    BlazeLayout.render("main", {content: "properties"});    
+    Meteor.subscribe('properties.result', queryParams);
   },
   subscriptions: function(params, queryParams) {
-    debugger;
-    this.register('searchResult', Meteor.subscribe('searchResult', queryParams));
-    }
+    Meteor.subscribe('properties.result', queryParams);
+  }
 });

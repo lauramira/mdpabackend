@@ -26,13 +26,11 @@
 }
 
 .property-container {
-  border: 2px solid gray;
-  margin-left: 40px;
-  margin-right: 25px;
   margin-top: 5px;
   margin-bottom: 5px;
   text-align: center;
-  height: 180px;
+  background-color: #BDBDBD;
+  border: 2px solid white;
 }
 
 .property-container.col-xs-4 {
@@ -67,4 +65,8 @@
 
 .center-block{
   margin-bottom: 15px;
+}
+
+.action-container {
+  padding: 5px;
 }

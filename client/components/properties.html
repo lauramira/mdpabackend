@@ -1,0 +1,27 @@
+<template name="properties">
+    <div class="row">
+    {{#each results}}
+      <div class="col-xs-3 property-container" >
+        <div class="col-xs-12">
+          <h3>{{name}}</h3>
+          <p class="row">{{address}}</p>
+          <p class="row">{{price}} €/month</p>
+          <img src="{{images.[0]}}" width="100%"/>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-6 action-container">
+              <button class="btn form-control">
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="col-xs-6 action-container">
+                <button class="btn form-control">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true">
+                  </span>
+              </button>
+            </div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+</template>
