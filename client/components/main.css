@@ -76,7 +76,13 @@
 }
 
 .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 35%;
-      margin: auto;
-  }
+.carousel-inner > .item > a > img {
+  width: 35%;
+  margin: auto;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+}

@@ -29,6 +29,39 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-  <h4>Price: {{price}}</h4>
+  <hr>
+  <h4>Charactersitics</h4>
+  <div class="row">
+    <div class="col-xs-6 form-group">
+      <label>Price:</label> {{price}} €{{#if isRental}}/month{{/if}}
+    </div>
+    <div class="col-xs-6 form-group">
+      <label>Views:</label> {{views}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 form-group">
+      <label>Address:</label> {{address}}, {{city}}, {{zipcode}}
+    </div>
+    <div class="col-xs-6 form-group">
+      <label>Type:</label> {{type}}
+    </div>
+  </div>
+  <hr>
+  <h4>Description</h4>
+  <div class="row">
+    <div class="col-xs-12 form-group">
+      {{description}}
+    </div>
+  </div>
+  <hr>
+  <h4>Location</h4>
+  <div class="row">
+    <div class="col-xs-12 form-group">
+      <div class="map-container">
+        {{> googleMap name="locationProperty" options=locationPropertyOptions}}
+      </div>
+    </div>
+  </div>
   {{/each}}
 </template>
