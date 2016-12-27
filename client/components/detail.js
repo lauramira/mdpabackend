@@ -10,7 +10,7 @@ Template.detail.onCreated(function detailOnCreated(){
 
 Template.detail.helpers({
   property: function(){
-    return Properties.find({}).fetch();
+    return Properties.findOne({});
   },
   isFirst: function(){
     return Properties.findOne({}).images[0] == this;
@@ -25,6 +25,9 @@ Template.detail.helpers({
         zoom: 14
       };
     }
+  },
+  comments : function (){
+    var commentsList = Comments.find().fetch();
   }
 });
 
