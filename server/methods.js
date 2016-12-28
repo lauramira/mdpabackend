@@ -1,3 +1,6 @@
+let fs = Npm.require('fs');
+let path = Npm.require('path');
+
 Meteor.methods({
 	'properties.create' : function (data){
 		if (this.userId){
@@ -11,7 +14,56 @@ Meteor.methods({
 		} else {
 			throw new Meteor.Error(401, 'Access denied');
 		}
-	}
+	},
+	'properties.addComment' : function (id, commentToSend) {
+		check(id, String)
+		check(commentToSend.comment, String)
+
+		var dataUri = commentToSend.images;
+		var date = new Date();
+		var fileName = id + date.getDate() + date.getMonth() + date.getFullYear() + date.getHours() + date.getMinutes() + date.getMilliseconds() + ".jpg";
+		console.log(fs);
+			fs.access('public/uploads', fs.R_OK | fs.W_OK, (err) => {
+		  	console.log(err ? 'no access!' : 'can read/write');
+			});
+
+			try { // instrucciones a probar
+				let buff = new Buffer(dataUri, 'base64');
+				let stream = fs.createWriteStream(path.join(process.cwd(), 'public/uploads', "1.jpg"));
+  			stream.write(buff);
+				stream.end();
+		}
+			catch (e) {
+  		console.log(e);
+		}
+
+
+		var images = fileName;
+
+		var userEmail = Users.findOne({_id: this.userId}).emails[0].address;
+
+		var doc = {
+			propertyId: id,
+			comment: commentToSend.comment,
+			images: images,
+			user: userEmail,
+			createdAt: new Date()
+		}
+		console.log(images);
+		return Comments.insert(doc);
+	},
+
+	'properties.addRemoveFav' : function (propertyId, userId) {
+		check(userId, String);
+		check(propertyId, String);
+		var favorites = Users.findOne().favorites;
+
+		if (favorites && favorites.length && favorites.indexOf(propertyId) !== -1){
+			return Users.update({_id: userId}, {$pull : {favorites : propertyId}});
+		} else {
+			return Users.update({_id: userId}, {$addToSet : {favorites : propertyId}});
+		}
+	},
 })
 
 // var cnx = DDP.connect('localhost:3000')

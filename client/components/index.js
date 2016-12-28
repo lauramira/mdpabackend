@@ -12,7 +12,23 @@ Template.index.helpers({
     'click #search': function () {
       var type = $("input[name='propertyType']:checked").val();
       var matchSearch = $("#matchSearch").val();
-      FlowRouter.go('/properties?type=' + type + '&matchSearch=' + matchSearch);
+      var correctSearch = true;
+      if (!type){
+          $("#typeRequired").text("Required");
+          correctSearch = false;
+      } else {
+        $("#typeRequired").text("");
+      }
 
+      if (!matchSearch || matchSearch === ""){
+        $("#matchSearchRequired").text("Required");
+        correctSearch = false;
+      } else {
+        $("#matchSearchRequired").text("");
+      }
+
+      if (correctSearch){
+        FlowRouter.go('/properties?type=' + type + '&matchSearch=' + matchSearch);
+      }
     }
   });

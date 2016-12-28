@@ -1,5 +1,10 @@
 <template name="properties">
     <div class="row">
+      {{#if emptyList}}
+      <div class="alert alert-info">
+          No results found!
+      </div>
+      {{/if}}
     {{#each results}}
       <div class="col-xs-3 property-container" >
         <div class="col-xs-12">
@@ -16,8 +21,8 @@
             </div>
             <div class="col-xs-6 action-container">
               {{#if userLogged}}
-                <button class="btn form-control">
-                  <span class="glyphicon glyphicon-star yellow">
+                <button id="addRemoveFav" class="btn form-control">
+                  <span class="glyphicon glyphicon-star {{#if isFav}}yellow{{/if}}">
                   </span>
                 </button>
                 {{/if}}
