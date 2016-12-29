@@ -22,7 +22,10 @@ Template.properties.helpers({
 
 Template.properties.events({
 	'click #show': function () {
-		FlowRouter.go('/property/'+ this._id);
+		Meteor.call("properties.incViews", this._id, (err, res) => {
+				FlowRouter.go('/property/'+ this._id);
+		});
+
 	},
 
 	"click #addRemoveFav" : function (event, template){

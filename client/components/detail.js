@@ -57,13 +57,12 @@ Template.detail.events({
     }
 
     if (correctSendComment){
-      var imagesToUpdate = $("input[type='file']")[0].files[0].name;
+      //var imagesToUpdate = $("input[type='file']")[0].files[0].name;
 
       var commentToSend = {
         comment: comment,
-        images: imagesToUpdate
+        images: []
       }
-debugger;
       Meteor.call('properties.addComment', this._id, commentToSend, (err, res) => {
           $("#comment").val('');
       });

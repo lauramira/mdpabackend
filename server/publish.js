@@ -3,7 +3,9 @@ Meteor.publish("properties.result", function (queryParams){
   check(queryParams.type, String);
   check(queryParams.matchSearch, String);
 	return Properties.find({type: queryParams.type,
-        $or : [ {address: {$regex: queryParams.matchSearch}}, {zipcode: {$regex: queryParams.matchSearch}}, {city: {$regex: queryParams.matchSearch}}]},
+        $or : [ {address: {$regex: queryParams.matchSearch, $options: 'i'}},
+                {zipcode: {$regex: queryParams.matchSearch, $options: 'i'}},
+                {city: {$regex: queryParams.matchSearch , $options: 'i'}}]},
         {fields: {'name':1, 'address': 1, 'price' : 1, 'images' : 1}});
 });
 
