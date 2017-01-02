@@ -1,19 +1,23 @@
 {
   "servers": [
     {
-      "host": "hostname",
+      "host": "91.134.139.134",
       "username": "root",
-      "password": "password",      
-      "env" : {}
+      "password": "7mdWuCS3"
     }
   ],
   "setupMongo": true,
-  "appName": "meteor",
-  "app": "/Users/arunoda/Meteor/my-app",
+  "setupNode": true,
+  "nodeVersion": "4.4.6",
+  "setupPhantom": true,
+  "enableUploadProgressBar": true,
+  "appName": "lmira",
+  "app": ".",
   "env": {
-    "PORT": 80,
-    "ROOT_URL": "http://myapp.com"
+    "PORT": 3002,
+    "UPSTART_UID": "meteoruser",
+    "ROOT_URL": "http://lmira.lasalle.ovh",
+    "MONGO_URL": "mongodb://meteoruser:meteoruser@localhost:27017/lmira"
   },
-  "deployCheckWaitTime": 15,
-  "enableUploadProgressBar": true
+  "deployCheckWaitTime": 60
 }

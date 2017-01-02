@@ -1,4 +1,3 @@
-
 Template.properties.onCreated(function propertiesOnCreated(){
 });
 
