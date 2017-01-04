@@ -3,13 +3,14 @@
     {
       "host": "91.134.139.134",
       "username": "root",
-      "password": "7mdWuCS3"
+      "password": "7mdWuCS3",
+      "env": {}
     }
   ],
   "setupMongo": true,
   "setupNode": true,
-  "nodeVersion": "4.4.6",
-  "setupPhantom": true,
+  "nodeVersion": "4.4.7",
+  "setupPhantom": false,
   "enableUploadProgressBar": true,
   "appName": "lmira",
   "app": ".",
@@ -19,5 +20,9 @@
     "ROOT_URL": "http://lmira.lasalle.ovh",
     "MONGO_URL": "mongodb://meteoruser:meteoruser@localhost:27017/lmira"
   },
-  "deployCheckWaitTime": 60
+  "deployCheckWaitTime": 120,
+  "buildOptions": {
+      "debug": true,
+      "cleanAfterBuild": true
+    }
 }

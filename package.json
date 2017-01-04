@@ -1,13 +1,24 @@
 {
-  "name": "lmira",
+  "name": "propertycrossmdpa",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "6.20.0",
+    "babel-runtime": "^6.20.0",
     "bcrypt": "^1.0.2",
     "imports": "^1.0.0",
     "mupx": "^1.5.3"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://lauramira@bitbucket.org/lauramira/propertycrossmdpa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lauramira/propertycrossmdpa#readme",
+  "description": ""
 }
