@@ -131,3 +131,31 @@ Api.addRoute('user/modifyFavorites/:id', {authRequired: true}, {
 		}
 	}
 });
+
+/* COMMENT */
+Api.addRoute('comment/byProperty/:id', {authRequired: false}, {
+  get: function () {
+    var propertyId = this.urlParams.id;
+		if (propertyId){
+			return Comments.find({propertyId: propertyId}, {fields: {'propertyId' : 0, '_id' : 0}}).fetch();
+		} else {
+			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
+		}
+	}
+});
+
+Api.addRoute('comment', {authRequired: true}, {
+  post: function () {
+    var comment = this.bodyParams;
+		comment.createdAt = new Date();
+		if (comment){
+			if (Comments.insert(comment)){
+				return {status: 'success', data: {message: 'Comment added'}}
+			} else {
+				return {statusCode: 404, body: {status: 'fail', message: 'Error on add comment'}}
+			}
+		} else {
+			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
+		}
+	}
+});
