@@ -3,7 +3,7 @@ var Api = new Restivus({
 });
 
 /* PROPERTY API */
-Api.addRoute('property', {authRequired: false}, {
+Api.addRoute('properties', {authRequired: false}, {
   get: function () {
     var query = this.queryParams;
 		if (query && query.matchSearch && query.type){
@@ -39,24 +39,6 @@ Api.addRoute('property/:id', {authRequired: true}, {
   }
 });
 
-Api.addRoute('property/incViews/:id', {authRequired: true}, {
-  put: function () {
-		var id = this.urlParams.id;
-		if (!this.userId){
-			return { statusCode: 401, body: {status: 'Unauthorized', message: 'Unauthorized'}}
-		}
-		if (id && this.userId){
-			if (Properties.update({_id: id}, {$inc : {views:1}})){
-				return {status: 'success', data: {message: 'View added'}}
-			} else {
-				return {statusCode: 404, body: {status: 'fail', message: 'Error on add view'}}
-			}
-		} else {
-			return { statusCode: 401, body: {status: 'Unauthorized', message: 'Unauthorized'}}
-		}
-	}
-});
-
 Api.addRoute('propertyWithComments/:id', {
   get: function () {
     var id = this.urlParams.id;
@@ -71,6 +53,20 @@ Api.addRoute('propertyWithComments/:id', {
 		} else {
 			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}
     	}
+		}
+	}
+});
+
+Api.addRoute('property/incViews/:id', {authRequired: false}, {
+  put: function () {
+		var id = this.urlParams.id;
+
+		if (id){
+			if (Properties.update({_id: id}, {$inc : {views:1}})){
+				return {status: 'success', data: {message: 'View added'}}
+			} else {
+				return {statusCode: 404, body: {status: 'fail', message: 'Error on add view'}}
+			}
 		}
 	}
 });

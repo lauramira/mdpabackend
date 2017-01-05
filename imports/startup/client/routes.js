@@ -14,7 +14,7 @@ FlowRouter.route('/create', {
   }
 });
 
-FlowRouter.route('/property', {
+FlowRouter.route('/properties', {
   action: function(params, queryParams) {
     BlazeLayout.render("main", {content: "properties"});
   },
