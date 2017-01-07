@@ -62,7 +62,6 @@ Meteor.methods({
 		check(userId, String);
 		check(propertyId, String);
 		var favorites = Users.findOne().favorites;
-
 		if (favorites && favorites.length && favorites.indexOf(propertyId) !== -1){
 			return Users.update({_id: userId}, {$pull : {favorites : propertyId}});
 		} else {

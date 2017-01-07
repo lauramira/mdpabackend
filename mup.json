@@ -7,9 +7,9 @@
       "env": {}
     }
   ],
-  "setupMongo": true,
+  "setupMongo": false,
   "setupNode": true,
-  "nodeVersion": "4.4.7",
+  "nodeVersion": "0.10.43",
   "setupPhantom": false,
   "enableUploadProgressBar": true,
   "appName": "lmira",
@@ -18,11 +18,7 @@
     "PORT": 3002,
     "UPSTART_UID": "meteoruser",
     "ROOT_URL": "http://lmira.lasalle.ovh",
-    "MONGO_URL": "mongodb://meteoruser:meteoruser@localhost:27017/lmira"
+    "MONGO_URL": "mongodb://admin:admin555@ds023325.mlab.com:23325/propertycrossmdpa"
   },
-  "deployCheckWaitTime": 120,
-  "buildOptions": {
-      "debug": true,
-      "cleanAfterBuild": true
-    }
+  "deployCheckWaitTime": 120
 }

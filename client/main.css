@@ -102,3 +102,8 @@
 .alert-info {
   margin-top:10px;
 }
+
+#filter-container {
+  background-color: #E6E6E6;
+  padding-top: 10px;
+}

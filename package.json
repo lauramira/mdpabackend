@@ -11,14 +11,5 @@
     "mupx": "^1.5.3"
   },
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://lauramira@bitbucket.org/lauramira/propertycrossmdpa.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/lauramira/propertycrossmdpa#readme",
-  "description": ""
+  "author": "lmira"
 }

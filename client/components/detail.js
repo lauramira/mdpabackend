@@ -17,7 +17,7 @@ Template.detail.helpers({
     return Properties.findOne({}).images[0] == this;
   },
   isRental: function(){
-    return this.type === 'rental';
+    return this.propertyType === 'rental';
   },
   userLogged: function () {
     return Meteor.userId();
@@ -26,7 +26,7 @@ Template.detail.helpers({
 		return Users.findOne({favorites: this._id});
   },
   locationPropertyOptions: function() {
-    if (GoogleMaps.loaded()) {
+    if (GoogleMaps.loaded() && this.location) {
       return {
         center: new google.maps.LatLng(this.location.lat, this.location.lng),
         zoom: 14

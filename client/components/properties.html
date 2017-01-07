@@ -1,5 +1,23 @@
 <template name="properties">
     <div class="row">
+      <div id="filter-container" class="col-xs-12">
+        <div class="col-xs-4">
+          <label>Filter type: </label>
+          <p class="text-uppercase">{{paramPropertyTypeValue}}</p>
+        </div>
+        <div class="col-xs-4">
+          <label>Search param: </label>
+          <p class="text-uppercase">{{paramPropertyMatchSearchValue}}</p>
+        </div>
+        <div class="col-xs-4 form-group">
+          <label >Order by</label>
+          <select id="orderSelect" class="form-control">
+              {{#each orderOptionsList}}
+                <option value="{{value}}">{{name}}</option>
+              {{/each}}
+          </select>
+        </div>
+      </div>
       {{#if emptyList}}
       <div class="alert alert-info">
           No results found!
@@ -10,7 +28,8 @@
         <div class="col-xs-12">
           <h3>{{name}}</h3>
           <p class="row">{{address}}</p>
-          <p class="row">{{price}} €/month</p>
+          <p class="row">{{price}} €{{#if isRental}}/month{{/if}}</p>
+          <p class="row">{{area}} m<sup>2</sup></p>
           <img src="{{images.[0]}}" width="100%"/>
         </div>
         <div class="col-xs-12">

@@ -9,11 +9,12 @@ Api.addRoute('properties', {authRequired: false}, {
 		if (query && query.matchSearch && query.type){
 			var matchSearch = query.matchSearch;
 			var type = query.type;
-			return Properties.find({type: type,
+			return Properties.find({propertyType: type,
           $or : [ {address: {$regex: matchSearch, $options: 'i'}},
                   {zipcode: {$regex:  matchSearch, $options: 'i'}},
                   {city: {$regex:  matchSearch , $options: 'i'}}]},
-          				{fields: {'name':1, 'address': 1, 'price' : 1, 'images' : 1}}).fetch();
+          				{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,
+									'area' : 1}}).fetch();
 		} else {
 			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
 		}
