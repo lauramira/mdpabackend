@@ -31,3 +31,21 @@ FlowRouter.route('/property/:id', {
     Meteor.subscribe('properties.byId', params.id);
   }
 });
+
+FlowRouter.route('/user/:id', {
+  action: function () {
+    BlazeLayout.render("main", {content: "user"});
+  },
+  subscriptions: function(params) {
+    Meteor.subscribe('currentUser', this.userId);
+  }
+});
+
+FlowRouter.route('/user/:id/favorites', {
+  action: function () {
+    BlazeLayout.render("main", {content: "favorites"});
+  },
+  subscriptions: function(params) {
+    Meteor.subscribe('properties.favoritesByUser', params.id);
+  }
+});

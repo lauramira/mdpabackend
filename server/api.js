@@ -72,6 +72,25 @@ Api.addRoute('property/incViews/:id', {authRequired: false}, {
 	}
 });
 
+Api.addRoute('user/:id/favorites', {authRequired: true},{
+  get: function () {
+    var id = this.urlParams.id;
+		if (id && this.userId == id){
+			var favorites = User.findOne(id).favorites;
+			if (favorites){
+				return Properties.find(
+					{'_id' : { $in : favorites }},
+					{fields: {'name':1, 'address': 1, 'price' : 1, 'images' : 1,
+					'area': 1}}).fetch();
+				}
+			return {};
+		} else {
+			return { statusCode: 401, body: {status: 'Unauthorized', message: 'Unauthorized'}}
+    }
+	}
+});
+
+
 /* USER */
 Api.addRoute('user/:id', {authRequired: true}, {
 	get: function () {

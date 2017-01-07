@@ -1,0 +1,25 @@
+<template name="user">
+  <div class="container">
+
+    <div class="row">
+      {{#if isCurrentUser}}
+      {{#with currentUser}}
+      <div class="col-xs-12 form-group">
+        <label class="">Email</label>
+        <div>{{emails.[0].address}}</div>
+      </div>
+      <div class="col-xs-4 form-group">
+        <button id="goToFavs" class="btn btn-default form-control">
+          <span class="glyphicon glyphicon-star {{#if isFav}}yellow{{/if}}">
+          </span> Go to Favorites
+        </button>
+      </div>
+      {{/with}}
+      {{else}}
+        <div class="col-xs-8 alert alert-danger">
+          Unauthorized!
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</template>

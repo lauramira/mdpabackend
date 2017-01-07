@@ -2,7 +2,14 @@
   <div class="row header-container">
     <h1 class="header-title">Welcome to Property cross mdpa</h1>
     <div class="login-buttons-container">
+      <div class="col-xs-10">
         {{> loginButtons}}
+      </div>
+        {{#if isLogged}}
+        <div class="col-xs-2">
+          <button id="goToProfile" type="button" class="btn btn-link">Profile</button>
+        </div>
+        {{/if}}
     </div>
   </div>
 

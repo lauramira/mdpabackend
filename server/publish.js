@@ -33,4 +33,24 @@ Meteor.publish("currentUser", function (id){
     check(id, String)
     return Users.find({_id : id}, {fields : {favorites: 1}});
   }
-})
+});
+
+Meteor.publishComposite("properties.favoritesByUser", function (id){
+	return {
+		find: function () {
+		return Users.find({_id: id}, {fields: {}});
+		},
+		children: [
+			{
+				find: function (user) {
+          if (user.favorites){
+            return Properties.find(
+              {'_id' : { $in : user.favorites }},
+              {fields: {'name':1, 'address': 1, 'price' : 1, 'images' : 1,
+              'area': 1}});
+          }
+				}
+			}
+		]
+	}
+});
