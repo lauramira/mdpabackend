@@ -76,7 +76,7 @@ Api.addRoute('user/:id/favorites', {authRequired: true},{
   get: function () {
     var id = this.urlParams.id;
 		if (id && this.userId == id){
-			var favorites = User.findOne(id).favorites;
+			var favorites = Users.findOne(id).favorites;
 			if (favorites){
 				return Properties.find(
 					{'_id' : { $in : favorites }},
