@@ -49,3 +49,9 @@ FlowRouter.route('/user/:id/favorites', {
     Meteor.subscribe('properties.favoritesByUser', params.id);
   }
 });
+
+FlowRouter.route('/login', {
+  action: function() {
+    BlazeLayout.render("main", {content: "customLogin"});
+  }
+});

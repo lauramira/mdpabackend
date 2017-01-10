@@ -3,7 +3,13 @@
     <h1 class="header-title">Welcome to Property cross mdpa</h1>
     <div class="login-buttons-container">
       <div class="col-xs-10">
-        {{> loginButtons}}
+        {{#if currentUser}}
+        <p>Logged in</p>
+        <button id="logout" type="button" class="white-link btn btn-link">Logout</button>
+        {{else}}
+            <button id="goToLogin" type="button" class="white-link btn btn-link">Login</button>
+            <button id="goToRegister" type="button" class="white-link btn btn-link">Register</button>
+        {{/if}}
       </div>
         {{#if isLogged}}
         <div class="col-xs-2">

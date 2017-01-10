@@ -67,7 +67,13 @@ Meteor.methods({
 		} else {
 			return Users.update({_id: userId}, {$addToSet : {favorites : propertyId}});
 		}
-	},
+	}
+
+	// 'user.addRole' : function (user, role) {
+	// 	var result = Roles.setUserRoles(user, ['admin']);
+	// 	console.log(result);
+	// 	return result;
+	// }
 })
 
 // var cnx = DDP.connect('localhost:3000')
