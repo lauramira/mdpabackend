@@ -1,6 +1,5 @@
 {
   "public": {},
   "env": {
-    "MONGO_URL": "mongodb://admin:admin555@ds023325.mlab.com:23325/propertycrossmdpa"
   }
 }

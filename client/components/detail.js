@@ -28,7 +28,7 @@ Template.detail.helpers({
   locationPropertyOptions: function() {
     if (GoogleMaps.loaded() && this.location) {
       return {
-        center: new google.maps.LatLng(this.location.lat, this.location.lng),
+        center: new google.maps.LatLng(this.location.coordinates[0], this.location.coordinates[1]),
         zoom: 14
       };
     }
