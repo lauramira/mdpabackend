@@ -12,9 +12,25 @@ Api.addRoute('properties', {authRequired: false}, {
 			return Properties.find({propertyType: type,
           $or : [ {address: {$regex: matchSearch, $options: 'i'}},
                   {zipcode: {$regex:  matchSearch, $options: 'i'}},
-                  {city: {$regex:  matchSearch , $options: 'i'}}]},
-          				{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,
-									'area' : 1}}).fetch();
+                  {city: {$regex:  matchSearch , $options: 'i'}}]}
+									//,{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,'area' : 1}}
+								).fetch();
+		} else if(query && query.lat && query.lng && query.type){
+				return Properties.aggregate(
+	        [{
+	          $geoNear: {
+	             near: {
+	                 type: "Point",
+	                 coordinates: [ parseFloat(query.lat),  parseFloat(query.lng) ] },
+	             distanceField: "distance",
+	             maxDistance: 3000,
+	             num: 15,
+	             spherical: true
+	          }
+	        },
+	        {
+	            $match: {propertyType: query.type}
+	        }])
 		} else {
 			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
 		}
