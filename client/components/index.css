@@ -1,14 +1,107 @@
-#showButton, #updateButton {
-  margin-top: 15px;
+.search-div {
+  width: 40%;
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border: solid 1px #6E6E6E;
+  display: inline-block;
+  box-shadow: 10px 10px 5px #888888;
 }
 
-.input-container-center {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.search-button {
+  background-color: #0B0B3B;
+  border-radius: 2px;
+  border: 1px solid #0B0B3B;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.radio-container {
-  margin-bottom: 15px;
+.search-input {
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #73AD21;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.search-input-required {
+  border-color: red !important;
+}
+
+.search-title {
+  margin-top: 0px;
+}
+
+.search-radio-container label {
+  width: 49%;
+  border-radius: 2px;
+  border: 1px solid #D1D3D4;
+}
+
+.search-radio-container label[for="radio1"] {
+  margin-right: 2%;
+}
+
+.search-radio-required {
+  border-color: red !important;
+}
+/* hide input */
+input.radio:empty {
+	display: none;
+}
+
+/* style label */
+input.radio:empty ~ label {
+	position: relative;
+	float: left;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 2em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input.radio:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 2px 0 0 2px;
+}
+
+/* toggle hover */
+input.radio:hover:not(:checked) ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+input.radio:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+/* toggle on */
+input.radio:checked ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: white;
+	background-color: #73AD21;
+}
+
+input.radio:checked ~ label {
+	color: #777;
+}
+
+/* radio focus */
+input.radio:focus ~ label:before {
+	/*box-shadow: 0 0 0 3px #999;*/
 }

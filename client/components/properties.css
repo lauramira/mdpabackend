@@ -1,0 +1,80 @@
+.properties-filter-div {
+  background-color:rgba(96, 95, 124, 0.2);
+  padding: 20px;
+  width:100%;
+  border: solid 1px #6E6E6E;
+}
+
+.properties-title {
+  margin-top: 0px;
+}
+
+.properties-filter-params-div {
+  display: inline-block;
+  width: 30%;
+}
+
+.properties-filter-select {
+  display: block;
+  padding: 5px;
+  width: 100%;
+}
+
+.properties-list-div {
+  margin:20px;
+  background-color: #F2F2F2;
+}
+
+.properties-property-div {
+  width: 48%;
+  background-color: white;
+  border: solid 1px #6E6E6E;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.properties-property-div:hover {
+  cursor: pointer;
+}
+
+.properties-property-div:nth-child(odd) {
+    margin-right: 3%;
+}
+
+
+.properties-property-image-div {
+  display: inline-block;
+  width: 40%;
+
+}
+
+.properties-property-image-div img {
+  vertical-align: bottom;
+}
+
+.properties-property-characteristics-div {
+  display: inline-block;
+  width: 55%;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.properties-property-characteristics-div h3 {
+  margin-top: 0px;
+  text-align: center;
+}
+
+.properties-property-characteristics-div p {
+  display: inline-block;
+}
+
+
+.properties-button {
+  width:50%;
+  background-color: #0B0B3B;
+  border-radius: 2px;
+  border: 1px solid #0B0B3B;
+  color: white;
+  padding: 5px;
+}

@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-.login-buttons-container {
+/*.login-buttons-container {
   text-align: left;
 }
 
@@ -71,10 +71,6 @@
   padding: 5px;
 }
 
-.yellow {
-  color: #FFBF00;
-}
-
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   width: 35%;
@@ -93,9 +89,9 @@
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 2px;
-}
+}*/
 
-.red {
+/*.red {
   color: red;
 }
 
@@ -106,8 +102,16 @@
 #filter-container {
   background-color: #E6E6E6;
   padding-top: 10px;
+}*/
+
+/*.white-link {
+  color: white;
+}*/
+
+body {
+  background-color: #F2F2F2;
 }
 
-.white-link {
-  color: white;
+.yellow {
+  color: #FFBF00;
 }
