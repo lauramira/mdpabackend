@@ -1,0 +1,15 @@
+<Template name="comment">
+  {{#each comments}}
+    <div class="detail-comment-user-div">
+      <div class="detail-comment-detail">
+        <b>{{checkUser user}}</b>
+      </div>
+      <div class="detail-comment-detail">
+        {{prettifyDate createdAt}}
+      </div>
+      <div class="detail-comment-text">
+          <p>{{comment}}</p>
+      </div>
+    </div>
+  {{/each}}
+</Template>

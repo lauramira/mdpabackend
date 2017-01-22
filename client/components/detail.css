@@ -2,12 +2,6 @@
   margin: 20px;
 }
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 50%;
-  margin: auto;
-}
-
 .detail-characteristics-div {
   width: 100%;
   padding: 10px;

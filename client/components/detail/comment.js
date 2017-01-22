@@ -1,0 +1,20 @@
+Template.comment.onCreated(function commentOnCreated(){
+
+});
+
+Template.comment.helpers({
+  comments : function (){
+    debugger;
+    console.log(Comments.find().fetch())
+    return Comments.find().fetch();
+  },
+
+  checkUser : function(user) {
+    return user == null ? "UNKNOWN" : user;
+  },
+
+  prettifyDate : function(timestamp) {
+    var date = new Date(timestamp);
+    return date.getDate() + "/" + date.getMonth() + "/" +  date.getFullYear();
+  }
+})

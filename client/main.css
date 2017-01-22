@@ -115,3 +115,7 @@ body {
 .yellow {
   color: #FFBF00;
 }
+
+hr {
+  border-color: #BDBDBD;
+}
