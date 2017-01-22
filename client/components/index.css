@@ -5,6 +5,7 @@
   margin: 20px;
   border: solid 1px #6E6E6E;
   display: inline-block;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .search-button {
@@ -40,7 +41,7 @@
 }
 
 .search-radio-container label[for="radio1"] {
-  margin-right: 8px;
+  margin-right: 2%;
 }
 
 .search-radio-required {

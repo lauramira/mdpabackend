@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-.login-buttons-container {
+/*.login-buttons-container {
   text-align: left;
 }
 
@@ -93,9 +93,9 @@
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 2px;
-}
+}*/
 
-.red {
+/*.red {
   color: red;
 }
 
@@ -106,11 +106,11 @@
 #filter-container {
   background-color: #E6E6E6;
   padding-top: 10px;
-}
+}*/
 
-.white-link {
+/*.white-link {
   color: white;
-}
+}*/
 
 body {
   background-color: #F2F2F2;
