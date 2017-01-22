@@ -19,6 +19,7 @@ FlowRouter.route('/properties', {
     BlazeLayout.render("main", {content: "properties"});
   },
   subscriptions: function(params, queryParams) {
+    console.log(queryParams)
     Meteor.subscribe('properties.result', queryParams);
   }
 });

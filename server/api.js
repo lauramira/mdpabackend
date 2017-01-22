@@ -21,6 +21,24 @@ Api.addRoute('properties', {authRequired: false}, {
 	}
 });
 
+Api.addRoute('properties/near/', {authRequired: false}, {
+  get: function () {
+    var query = this.queryParams;
+		if (query && query.lat && query.lng){
+			var latitude = query.lat;
+			var longitude = query.lng;
+			return Properties.find({propertyType: type,
+          $or : [ {address: {$regex: matchSearch, $options: 'i'}},
+                  {zipcode: {$regex:  matchSearch, $options: 'i'}},
+                  {city: {$regex:  matchSearch , $options: 'i'}}]},
+          				{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,
+									'area' : 1}}).fetch();
+		} else {
+			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
+		}
+	}
+});
+
 Api.addRoute('property/:id', {authRequired: true}, {
   get: {
 		authRequired: false,
