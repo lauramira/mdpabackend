@@ -44,7 +44,8 @@
   border: 1px solid #D1D3D4;
 }
 
-.search-radio-container label[for="radio1"] {
+.search-radio-container label[for="radio1"],
+.search-radio-container label[for="radio3"] {
   margin-right: 2%;
 }
 
@@ -103,9 +104,4 @@ input.radio:checked ~ label:before {
 
 input.radio:checked ~ label {
 	color: #777;
-}
-
-/* radio focus */
-input.radio:focus ~ label:before {
-	/*box-shadow: 0 0 0 3px #999;*/
 }
