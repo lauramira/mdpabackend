@@ -45,6 +45,7 @@ Template.properties.helpers({
 
 Template.properties.events({
 	'click #show': function () {
+		event.preventDefault();
 		Meteor.call("properties.incViews", this._id, (err, res) => {
 				FlowRouter.go('/property/'+ this._id);
 		});
@@ -55,6 +56,7 @@ Template.properties.events({
 		event.preventDefault();
 		Meteor.call("properties.addRemoveFav", this._id, Meteor.userId(), (err, res) => {
 		});
+		event.stopPropagation();
 	},
 
 	"change #orderSelect" : function (event, template) {
@@ -64,5 +66,6 @@ Template.properties.events({
 		sortObject[orderVal[1]] = Number(orderVal[0]);
 
 		Template.instance().results.set(Properties.find({}, {sort: sortObject}));
+
 	}
 });

@@ -69,12 +69,27 @@
   display: inline-block;
 }
 
+.properties-property-button-fav-div {
+  width: 5%;
+  display: inline-block;
+  top: 0;
+  height: auto;
+}
 
 .properties-button {
-  width:50%;
-  background-color: #0B0B3B;
-  border-radius: 2px;
-  border: 1px solid #0B0B3B;
+  background: none;
+  background-color: none;
+  border: none;
   color: white;
-  padding: 5px;
+}
+
+.properties-button:focus {
+  outline:0;
+}
+
+.properties-button{
+  color: gray;
+}
+.properties-property-button-fav-div .glyphicon.glyphicon-star{
+  font-size: 30px;
 }

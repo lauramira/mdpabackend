@@ -30,26 +30,21 @@
             <div class="properties-property-image-div"><img src="{{images.[0]}}" width="100%"/></div>
             <div class="properties-property-characteristics-div">
               <div><h3>{{name}}</h3></div>
-              <div><label>Address: </label><p>{{address}}</p></div>
-              <div><label>Price: </label><p>{{price}} €{{#if isRental}}/month{{/if}}</p></div>
-              <div><label>Area: </label><p>{{area}} m<sup>2</sup></p></div>
+              <div><label>Address:&nbsp;</label><p> {{address}}</p></div>
+              <div><label>Price:&nbsp;</label><p> {{price}} €{{#if isRental}}/month{{/if}}</p></div>
+              <div><label>Area:&nbsp;</label><p> {{area}} m<sup>2</sup></p></div>
             </div>
           </div>
-          <div>
-              <!-- <div>
-                <button id="show" class="properties-button">
-                  <span class="properties-buttons glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                </button>
-              </div> -->
-              <div>
-                {{#if userLogged}}
-                  <button id="addRemoveFav" class="properties-button">
-                    <span class="glyphicon glyphicon-star {{#if isFav}}yellow{{/if}}">
-                    </span>
-                  </button>
-                  {{/if}}
-              </div>
+          <div class="properties-property-button-fav-div">
+            {{#if userLogged}}
+              <button id="addRemoveFav" class="properties-button">
+                <span class="glyphicon glyphicon-star {{#if isFav}}yellow{{/if}}">
+                </span>
+              </button>
+              {{/if}}
           </div>
+
+
         </div>
       {{/each}}
       </div>
