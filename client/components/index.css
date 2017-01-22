@@ -1,5 +1,9 @@
-.search-div {
+.search-div-column {
   width: 40%;
+}
+
+.search-div {
+  width: 100%;
   background-color: white;
   padding: 20px;
   margin: 20px;

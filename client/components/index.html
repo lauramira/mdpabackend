@@ -1,23 +1,42 @@
 <template name="index">
-  <div class="search-div">
-    <h2 class="search-title">Search properties</h2>
-    <div>
-      <div class="search-radio-container">
-        <input type="radio" id="radio1" class="radio" name="propertyType" value="sale"/>
-        <label for="radio1">Sale</label>
+  <div class="search-div-column">
+    <div class="search-div">
+      <h2 class="search-title">Search properties</h2>
+      <div>
+        <div class="search-radio-container">
+          <input type="radio" id="radio1" class="radio" name="propertyType" value="sale"/>
+          <label for="radio1">Sale</label>
+        </div>
+        <div class="search-radio-container">
+          <input type="radio" id="radio2" class="radio" name="propertyType" value="rental"/>
+          <label for="radio2">Rental</label>
+        </div>
       </div>
-      <div class="search-radio-container">
-        <input type="radio" id="radio2" class="radio" name="propertyType" value="rental"/>
-        <label for="radio2">Rental</label>
+      <div>
+        <input id="matchSearch" type="search" class="search-input" placeholder="Addres, Zip Code, City..."/>
+
+      </div>
+
+      <div>
+        <button id="search" class="search-button {{#if isDisabled}}disabled{{/if}}">Search</button>
       </div>
     </div>
-    <div>
-      <input id="matchSearch" type="search" class="search-input" placeholder="Addres, Zip Code, City..."/>
 
-    </div>
-
-    <div>
-      <button id="search" class="search-button {{#if isDisabled}}disabled{{/if}}">Search</button>
+    <div id="searchDivLocation" class="search-div">
+      <h2 class="search-title">Search with current location</h2>
+      <div>
+        <div class="search-radio-container">
+          <input type="radio" id="radio3" class="radio" name="propertyTypeLocation" value="sale"/>
+          <label for="radio3">Sale</label>
+        </div>
+        <div class="search-radio-container">
+          <input type="radio" id="radio4" class="radio" name="propertyTypeLocation" value="rental"/>
+          <label for="radio4">Rental</label>
+        </div>
+      </div>
+      <div>
+        <button id="searchByLocation" class="search-button {{#if isDisabled}}disabled{{/if}}">Search</button>
+      </div>
     </div>
   </div>
 </template>
