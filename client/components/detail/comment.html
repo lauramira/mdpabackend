@@ -10,6 +10,11 @@
       <div class="detail-comment-text">
           <p>{{comment}}</p>
       </div>
+      <div>
+        {{#with images}}
+        <img src="../uploads/{{.}}" width="250" alt=""/>
+        {{/with}}
+      </div>
     </div>
   {{/each}}
 </Template>

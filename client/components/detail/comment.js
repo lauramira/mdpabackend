@@ -4,8 +4,6 @@ Template.comment.onCreated(function commentOnCreated(){
 
 Template.comment.helpers({
   comments : function (){
-    debugger;
-    console.log(Comments.find().fetch())
     return Comments.find().fetch();
   },
 

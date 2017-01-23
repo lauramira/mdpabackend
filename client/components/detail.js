@@ -27,17 +27,13 @@ Template.detail.events({
 
     if (!comment || comment === ""){
       correctSendComment = false;
-      $("#commentRequired").text("Required");
     }
 
     if (correctSendComment){
-      //var imagesToUpdate = $("input[type='file']")[0].files[0].name;
-
-      var commentToSend = {
-        comment: comment,
-        images: []
-      }
-      Meteor.call('properties.addComment', this._id, commentToSend, (err, res) => {
+      var fileName = $("#commentImageInput")[0].files[0].name;
+      var dataUri = $("#commentImageInput").val();
+debugger;
+      Meteor.call('properties.addComment', this._id, comment, dataUri, fileName ,(err, res) => {
           $("#comment").val('');
       });
     }

@@ -28,6 +28,7 @@
   border: 1px solid #73AD21;
   width: 100%;
   margin-top: 5px;
+  outline:0;
 }
 
 .search-input-required {
