@@ -30,12 +30,34 @@ Template.detail.events({
     }
 
     if (correctSendComment){
-      var fileName = $("#commentImageInput")[0].files[0].name;
-      var dataUri = $("#commentImageInput").val();
-debugger;
-      Meteor.call('properties.addComment', this._id, comment, dataUri, fileName ,(err, res) => {
-          $("#comment").val('');
-      });
+      var file = $("#commentImageInput")[0].files[0];
+
+      if (file){
+        var fileName = file.name;
+        let reader = new FileReader;
+
+        reader.readAsDataURL(file);
+
+        reader.onloadend = () => {
+          //console.log(reader.result);
+          Meteor.call('properties.addComment', this._id, comment, reader.result, fileName ,(err, res) => {
+            if (err){
+              console.log(err);
+            }
+              $("#comment").val('');
+          });
+        }
+      } else {
+        Meteor.call('properties.addComment', this._id, comment, null, null ,(err, res) => {
+          if (err){
+            console.log(err);
+          }
+            $("#comment").val('');
+        });
+      }
+
+
+
     }
 
 	},
