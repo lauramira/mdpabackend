@@ -9,12 +9,25 @@ Api.addRoute('properties', {authRequired: false}, {
 		if (query && query.matchSearch && query.type){
 			var matchSearch = query.matchSearch;
 			var type = query.type;
-			return Properties.find({propertyType: type,
-          $or : [ {address: {$regex: matchSearch, $options: 'i'}},
-                  {zipcode: {$regex:  matchSearch, $options: 'i'}},
-                  {city: {$regex:  matchSearch , $options: 'i'}}]}
-									//,{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,'area' : 1}}
-								).fetch();
+			var user = Users.findOne({_id:this.request.headers["x-user-id"]});
+			if (user){
+				
+				return Properties.find({propertyType: type,
+	          $or : [ {address: {$regex: matchSearch, $options: 'i'}},
+	                  {zipcode: {$regex:  matchSearch, $options: 'i'}},
+	                  {city: {$regex:  matchSearch , $options: 'i'}}]}
+										//,{fields: {'name':1, 'address': 1,'price' : 1, 'images' : 1,'area' : 1}}
+									).fetch();
+			} else {
+				return Properties.find({propertyType: type,
+	          $or : [ {address: {$regex: matchSearch, $options: 'i'}},
+	                  {zipcode: {$regex:  matchSearch, $options: 'i'}},
+	                  {city: {$regex:  matchSearch , $options: 'i'}}]}
+										,{fields: {'owner':0}}
+									).fetch();
+			}
+
+
 		} else if(query && query.lat && query.lng && query.type){
 				return Properties.aggregate(
 	        [{
@@ -40,9 +53,10 @@ Api.addRoute('properties', {authRequired: false}, {
 Api.addRoute('properties/near/', {authRequired: false}, {
   get: function () {
     var query = this.queryParams;
-		if (query && query.lat && query.lng){
+		if (query && query.lat && query.lng && query.type){
 			var latitude = query.lat;
 			var longitude = query.lng;
+			var type = query.type;
 			return Properties.find({propertyType: type,
           $or : [ {address: {$regex: matchSearch, $options: 'i'}},
                   {zipcode: {$regex:  matchSearch, $options: 'i'}},
@@ -77,8 +91,9 @@ Api.addRoute('property/:id', {authRequired: true}, {
 Api.addRoute('propertyWithComments/:id', {
   get: function () {
     var id = this.urlParams.id;
+		var user = Users.findOne({_id:this.request.headers["x-user-id"]});
 		if (id){
-			if (this.userId){
+			if (user){
 					var property = Properties.findOne(id);
 			} else {
 					var property = Properties.findOne({_id: id}, {fields: {'owner' : 0}});
@@ -146,26 +161,26 @@ Api.addRoute('user/:id', {authRequired: true}, {
 });
 
 
-Api.addRoute('user/modifyFavorites/:id', {authRequired: true}, {
+Api.addRoute('user/:id/modifyFavorites', {authRequired: true}, {
 	put: function (){
 		var id = this.urlParams.id;
-		var propertyId = this.bodyParams.propertyId;
-		var userId = this.userId;
+		var user = Users.findOne({_id:this.request.headers["x-user-id"]});
+		var propertyId = this.queryParams.propertyId;
 
-		if (!userId){
+		if (!user){
 			return { statusCode: 401, body: {status: 'Unauthorized', message: 'Unauthorized'}}
 		}
 		if (id && propertyId){
-			if (id === userId){
-				var favorites = Users.findOne({_id: userId}).favorites;
+			if (id === user._id){
+				var favorites = user.favorites;
 				if (favorites && favorites.length && favorites.indexOf(propertyId) !== -1){
-					if (Users.update({_id: userId}, {$pull : {favorites : propertyId}})){
+					if (Users.update({_id: user._id}, {$pull : {favorites : propertyId}})){
 						return {status: 'success', data: {message: 'Favorite updated'}}
 					} else {
 						return {statusCode: 404, body: {status: 'fail', message: 'Error on update favorite'}}
         	}
 				} else {
-					if (Users.update({_id: userId}, {$addToSet : {favorites : propertyId}})){
+					if (Users.update({_id: user._id}, {$addToSet : {favorites : propertyId}})){
 						return {status: 'success', data: {message: 'Favorite updated'}}
 					} else {
 						return {statusCode: 404, body: {status: 'fail', message: 'Error on update favorite'}}
@@ -198,11 +213,17 @@ Api.addRoute('comment', {authRequired: true}, {
   post: function () {
     var comment = this.bodyParams;
 		comment.createdAt = new Date();
+		var user = Users.findOne({_id:this.request.headers["x-user-id"]});
+		comment.user= user.emails[0].address
 		if (comment){
-			if (Comments.insert(comment)){
-				return {status: 'success', data: {message: 'Comment added'}}
+			if (!comment.propertyId || !comment.comment){
+				return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
 			} else {
-				return {statusCode: 404, body: {status: 'fail', message: 'Error on add comment'}}
+				if (Comments.insert(comment)){
+					return {status: 'success', data: {message: 'Comment added'}}
+				} else {
+					return {statusCode: 404, body: {status: 'fail', message: 'Error on add comment'}}
+				}
 			}
 		} else {
 			return { statusCode: 400, body: {status: 'Bad Request', message: 'Bad Request'}}
